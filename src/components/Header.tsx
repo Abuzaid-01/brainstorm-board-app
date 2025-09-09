@@ -1,7 +1,23 @@
 import { Button } from "@/components/ui/button";
-import { Share2, Users, Save, Settings } from "lucide-react";
+import { Share2, Users, Save, Settings, LogOut } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
+import { useNavigate } from "react-router-dom";
+import { useToast } from "@/hooks/use-toast";
 
 export const Header = () => {
+  const { user, signOut } = useAuth();
+  const navigate = useNavigate();
+  const { toast } = useToast();
+
+  const handleSignOut = async () => {
+    await signOut();
+    navigate("/");
+    toast({
+      title: "Signed out",
+      description: "You have been signed out successfully.",
+    });
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-40 bg-toolbar border-b border-border px-6 py-3">
       <div className="flex items-center justify-between max-w-7xl mx-auto">
@@ -32,6 +48,12 @@ export const Header = () => {
           <Button variant="ghost" size="sm">
             <Settings className="h-4 w-4" />
           </Button>
+          {user && (
+            <Button variant="ghost" size="sm" className="gap-2" onClick={handleSignOut}>
+              <LogOut className="h-4 w-4" />
+              Sign Out
+            </Button>
+          )}
         </div>
       </div>
     </header>

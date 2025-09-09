@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Users, Zap, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
 
 const Index = () => {
+  const { user } = useAuth();
+
   return (
     <div className="min-h-screen bg-gradient-subtle">
       {/* Header */}
@@ -19,10 +22,24 @@ const Index = () => {
           <nav className="flex items-center gap-6">
             <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">Features</a>
             <a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">Pricing</a>
-            <Button variant="outline" size="sm">Sign In</Button>
-            <Button size="sm" className="bg-gradient-primary hover:opacity-90">
-              Get Started
-            </Button>
+            {user ? (
+              <Link to="/whiteboard">
+                <Button size="sm" className="bg-gradient-primary hover:opacity-90">
+                  Go to Whiteboard
+                </Button>
+              </Link>
+            ) : (
+              <>
+                <Link to="/auth">
+                  <Button variant="outline" size="sm">Sign In</Button>
+                </Link>
+                <Link to="/auth">
+                  <Button size="sm" className="bg-gradient-primary hover:opacity-90">
+                    Get Started
+                  </Button>
+                </Link>
+              </>
+            )}
           </nav>
         </div>
       </header>

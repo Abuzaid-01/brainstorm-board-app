@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Header } from "@/components/Header";
 import { Toolbar, Tool } from "@/components/Toolbar";
 import { Canvas, Element } from "@/components/Canvas";
+import { ProtectedRoute } from "@/components/ProtectedRoute";
 import { useToast } from "@/hooks/use-toast";
 
 const Whiteboard = () => {
@@ -72,27 +73,29 @@ const Whiteboard = () => {
   };
 
   return (
-    <div className="h-screen w-screen overflow-hidden bg-gradient-subtle">
-      <Header />
-      <Toolbar
-        activeTool={activeTool}
-        onToolChange={setActiveTool}
-        onZoomIn={handleZoomIn}
-        onZoomOut={handleZoomOut}
-        onClear={handleClear}
-        onExport={handleExport}
-        onImport={handleImport}
-      />
-      <div className="pt-16 h-full">
-        <Canvas
+    <ProtectedRoute>
+      <div className="h-screen w-screen overflow-hidden bg-gradient-subtle">
+        <Header />
+        <Toolbar
           activeTool={activeTool}
-          elements={elements}
-          onElementsChange={setElements}
-          zoom={zoom}
-          onZoomChange={setZoom}
+          onToolChange={setActiveTool}
+          onZoomIn={handleZoomIn}
+          onZoomOut={handleZoomOut}
+          onClear={handleClear}
+          onExport={handleExport}
+          onImport={handleImport}
         />
+        <div className="pt-16 h-full">
+          <Canvas
+            activeTool={activeTool}
+            elements={elements}
+            onElementsChange={setElements}
+            zoom={zoom}
+            onZoomChange={setZoom}
+          />
+        </div>
       </div>
-    </div>
+    </ProtectedRoute>
   );
 };
 
