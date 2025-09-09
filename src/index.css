@@ -8,33 +8,56 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 0 0% 98%;
+    --foreground: 240 10% 3.9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 240 10% 3.9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 240 10% 3.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 180 100% 85%;
+    --accent-foreground: 180 100% 15%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 262 83% 58%;
+
+    /* Whiteboard specific colors */
+    --canvas: 0 0% 99%;
+    --canvas-grid: 220 13% 95%;
+    --toolbar: 0 0% 100%;
+    --toolbar-border: 220 13% 91%;
+    
+    /* Element colors */
+    --sticky-yellow: 51 100% 85%;
+    --sticky-pink: 330 100% 90%;
+    --sticky-blue: 200 100% 85%;
+    --sticky-green: 120 100% 85%;
+    --sticky-orange: 30 100% 85%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(262 83% 58%), hsl(285 85% 65%));
+    --gradient-accent: linear-gradient(135deg, hsl(180 100% 85%), hsl(200 100% 80%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 99%), hsl(220 13% 97%));
+    
+    /* Shadows */
+    --shadow-soft: 0 2px 8px -1px hsl(220 13% 91% / 0.4);
+    --shadow-medium: 0 8px 25px -5px hsl(220 13% 91% / 0.6);
+    --shadow-element: 0 4px 12px -2px hsl(262 83% 58% / 0.15);
 
     --radius: 0.5rem;
 
